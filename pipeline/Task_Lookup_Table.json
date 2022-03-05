@@ -43,10 +43,12 @@
 				"defaultValue": "SalesLT"
 			},
 			"Table_Name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Address"
 			},
 			"Db_Name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "sample_db-2022-2-19-21-4"
 			}
 		},
 		"folder": {
