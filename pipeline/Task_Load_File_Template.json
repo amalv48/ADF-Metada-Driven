@@ -40,11 +40,12 @@
 								"file_type"
 							]
 						},
-						"sqlWriterUseTableLock": false,
+						"sqlWriterUseTableLock": true,
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": true,
+					"validateDataConsistency": false,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
