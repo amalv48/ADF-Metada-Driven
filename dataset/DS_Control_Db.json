@@ -1,0 +1,20 @@
+{
+	"name": "DS_Control_Db",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Control_Db",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Schema_Name": {
+				"type": "string"
+			},
+			"Table_Name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
