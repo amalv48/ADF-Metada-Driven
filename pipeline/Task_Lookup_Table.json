@@ -35,11 +35,39 @@
 						}
 					}
 				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_Control_Db",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"parameters": {
 			"Schema_Name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "SalesLT"
 			},
 			"Table_Name": {
 				"type": "string"
