@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"Target_Name": {
+			"File_Name": {
 				"type": "string"
 			}
 		},
@@ -14,7 +14,12 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation"
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().File_Name",
+					"type": "Expression"
+				},
+				"fileSystem": "utility-input"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

@@ -1,0 +1,151 @@
+{
+	"name": "Task_Load_File_Template",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": false,
+							"keys": []
+						},
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "table_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "table_name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "load_type",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "load_type",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "process_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "process_name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "target_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "target_name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "file_type",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "file_type",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_Csv_Template",
+						"type": "DatasetReference",
+						"parameters": {
+							"File_Name": {
+								"value": "@pipeline().parameters.File_Name",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_Control_Db",
+						"type": "DatasetReference",
+						"parameters": {
+							"Db_Name": {
+								"value": "@pipeline().parameters.Db_Name",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"File_Name": {
+				"type": "string"
+			},
+			"Db_Name": {
+				"type": "string",
+				"defaultValue": "control_db"
+			}
+		},
+		"folder": {
+			"name": "Task"
+		},
+		"annotations": []
+	}
+}
