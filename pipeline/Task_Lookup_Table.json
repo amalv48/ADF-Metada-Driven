@@ -37,7 +37,7 @@
 		"parameters": {
 			"Db_Name": {
 				"type": "string",
-				"defaultValue": "sample_db-2022-2-19-21-4"
+				"defaultValue": "control"
 			}
 		},
 		"folder": {
