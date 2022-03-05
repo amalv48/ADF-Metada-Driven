@@ -27,6 +27,10 @@
 							"Db_Name": {
 								"value": "@pipeline().parameters.Db_Name",
 								"type": "Expression"
+							},
+							"Table_Name": {
+								"value": "@pipeline().parameters.Table_Name",
+								"type": "Expression"
 							}
 						}
 					}
