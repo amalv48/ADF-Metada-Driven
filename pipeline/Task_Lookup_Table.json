@@ -17,10 +17,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": {
-							"value": "@Select * from pipeline().parameters.Schema_Name.pipeline().parameters.Table_Name",
-							"type": "Expression"
-						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},

@@ -14,10 +14,26 @@
 		"parameters": {
 			"Db_Name": {
 				"type": "string"
+			},
+			"Table_Name": {
+				"type": "string"
+			},
+			"Schema_Name": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": []
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().Schema_Name",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().Table_Name",
+				"type": "Expression"
+			}
+		}
 	}
 }
