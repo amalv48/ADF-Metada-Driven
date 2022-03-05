@@ -42,6 +42,18 @@
 						"mappings": [
 							{
 								"source": {
+									"name": "souce_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "source_name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
 									"name": "table_name",
 									"type": "String",
 									"physicalType": "String"
