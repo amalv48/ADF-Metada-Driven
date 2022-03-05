@@ -1,0 +1,26 @@
+{
+	"name": "DS_Csv_Template",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Adls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Target_Name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
