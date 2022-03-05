@@ -20,14 +20,8 @@
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": {
-				"value": "@dataset().Schema_Name",
-				"type": "Expression"
-			},
-			"table": {
-				"value": "@dataset().Table_Name",
-				"type": "Expression"
-			}
+			"schema": "ctl",
+			"table": "file_template"
 		}
 	}
 }
