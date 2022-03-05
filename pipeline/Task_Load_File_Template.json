@@ -156,7 +156,8 @@
 		],
 		"parameters": {
 			"File_Name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Metadata_Extract.csv"
 			},
 			"Db_Name": {
 				"type": "string",
