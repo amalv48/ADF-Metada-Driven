@@ -17,6 +17,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "@Select * from pipeline().parameters.Schema_Name.pipeline().parameters.Table_Name",
+							"type": "Expression"
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -24,44 +28,13 @@
 						"referenceName": "DS_Control_Db",
 						"type": "DatasetReference",
 						"parameters": {
-							"Schema_Name": {
-								"value": "@pipeline().parameters.Schema_Name",
-								"type": "Expression"
-							},
-							"Table_Name": {
-								"value": "@pipeline().parameters.Table_Name",
+							"Db_Name": {
+								"value": "@pipeline().parameters.Db_Name",
 								"type": "Expression"
 							}
 						}
 					}
 				}
-			},
-			{
-				"name": "Copy data1",
-				"type": "Copy",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "DS_Control_Db",
-						"type": "DatasetReference"
-					}
-				]
 			}
 		],
 		"parameters": {
@@ -70,6 +43,9 @@
 				"defaultValue": "SalesLT"
 			},
 			"Table_Name": {
+				"type": "string"
+			},
+			"Db_Name": {
 				"type": "string"
 			}
 		},
