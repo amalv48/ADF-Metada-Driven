@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Load_Template_To_ControlDb",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
