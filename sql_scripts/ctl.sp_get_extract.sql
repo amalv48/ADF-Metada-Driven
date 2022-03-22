@@ -1,4 +1,4 @@
-CREATE PROCEDURE sp_get_extract
+CREATE PROCEDURE ctl.sp_get_extract
 AS
 BEGIN
     
