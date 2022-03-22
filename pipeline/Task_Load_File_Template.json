@@ -28,18 +28,7 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"writeBehavior": "upsert",
-						"upsertSettings": {
-							"useTempDB": false,
-							"keys": [
-								"source_name",
-								"table_name",
-								"load_type",
-								"process_name",
-								"target_name",
-								"file_type"
-							]
-						},
+						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": true,
 						"disableMetricsCollection": false
 					},
