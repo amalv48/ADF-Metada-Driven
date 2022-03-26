@@ -1,5 +1,5 @@
 {
-	"name": "DS_Control_Db",
+	"name": "DS_Control_Db_Csv_Sink",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Azure_Sql_Db",

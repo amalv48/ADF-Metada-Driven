@@ -132,7 +132,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_Control_Db",
+						"referenceName": "DS_Control_Db_Csv_Sink",
 						"type": "DatasetReference",
 						"parameters": {
 							"Db_Name": {
