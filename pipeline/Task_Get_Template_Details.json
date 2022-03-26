@@ -48,7 +48,11 @@
 							"name": "Set_Variable_Process_Name",
 							"type": "SetVariable",
 							"dependsOn": [],
-							"userProperties": []
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "Process_Name",
+								"value": ""
+							}
 						}
 					]
 				}
@@ -58,6 +62,11 @@
 			"Db_Name": {
 				"type": "string",
 				"defaultValue": "control_db"
+			}
+		},
+		"variables": {
+			"Process_Name": {
+				"type": "String"
 			}
 		},
 		"folder": {
