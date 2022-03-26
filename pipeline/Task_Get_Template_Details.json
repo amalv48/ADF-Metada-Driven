@@ -1,5 +1,5 @@
 {
-	"name": "Task_Lookup_Table",
+	"name": "Task_Get_Template_Details",
 	"properties": {
 		"activities": [
 			{
@@ -26,7 +26,7 @@
 				}
 			},
 			{
-				"name": "ForEach",
+				"name": "ForEach_From_Template_File",
 				"type": "ForEach",
 				"dependsOn": [
 					{
@@ -36,7 +36,22 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('SP_Get_Template_Details').output",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Set_Variable_Process_Name",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": []
+						}
+					]
+				}
 			}
 		],
 		"parameters": {
