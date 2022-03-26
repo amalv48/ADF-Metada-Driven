@@ -39,6 +39,11 @@
 						"type": "TabularTranslator",
 						"mappings": [
 							{
+								"source": {
+									"name": "source_name",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "source_name",
 									"type": "String",
