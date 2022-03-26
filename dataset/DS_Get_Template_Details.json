@@ -1,0 +1,15 @@
+{
+	"name": "DS_Get_Template_Details",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Azure_Sql_Db",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"db_name": "control_db"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
