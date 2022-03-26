@@ -39,11 +39,6 @@
 						"type": "TabularTranslator",
 						"mappings": [
 							{
-								"source": {
-									"name": "souce_name",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "source_name",
 									"type": "String",
@@ -100,12 +95,12 @@
 							},
 							{
 								"source": {
-									"name": "file_type",
+									"name": "target_file_type",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "file_type",
+									"name": "target_file_type",
 									"type": "String",
 									"physicalType": "varchar"
 								}

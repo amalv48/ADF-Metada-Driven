@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "SP_Get_Template_Details",
-				"type": "SqlServerStoredProcedure",
+				"name": "Lookup1",
+				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
@@ -15,46 +15,16 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[ctl].[sp_get_extract]"
-				},
-				"linkedServiceName": {
-					"referenceName": "LS_Azure_Sql_Db",
-					"type": "LinkedServiceReference",
-					"parameters": {
-						"db_name": "control_db"
-					}
-				}
-			},
-			{
-				"name": "ForEach_From_Template_File",
-				"type": "ForEach",
-				"dependsOn": [
-					{
-						"activity": "SP_Get_Template_Details",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@activity('SP_Get_Template_Details').output",
-						"type": "Expression"
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderStoredProcedureName": "[ctl].[sp_get_extract]",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
 					},
-					"isSequential": true,
-					"activities": [
-						{
-							"name": "Set_Variable_Process_Name",
-							"type": "SetVariable",
-							"dependsOn": [],
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "Process_Name",
-								"value": ""
-							}
-						}
-					]
+					"dataset": {
+						"referenceName": "DS_Get_Template_Details",
+						"type": "DatasetReference"
+					}
 				}
 			}
 		],
