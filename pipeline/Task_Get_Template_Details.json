@@ -22,7 +22,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "DS_Asql_Get_Template_Details",
+						"referenceName": "DS_Asql_Control_Db",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -60,8 +60,29 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"sqlReaderStoredProcedureName": "[ctl].[sp_get_extract]",
+									"storedProcedureParameters": {
+										"process_name": {
+											"type": "String",
+											"value": {
+												"value": "@item()",
+												"type": "Expression"
+											}
+										}
+									},
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
 								"enableStaging": false
-							}
+							},
+							"inputs": [
+								{
+									"referenceName": "DS_Asql_Control_Db",
+									"type": "DatasetReference"
+								}
+							]
 						}
 					]
 				}
