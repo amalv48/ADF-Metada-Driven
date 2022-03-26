@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup Extract",
-				"type": "Lookup",
+				"name": "SP_Get_Template_Details",
+				"type": "SqlServerStoredProcedure",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
@@ -15,24 +15,28 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "AzureSqlSource",
-						"sqlReaderStoredProcedureName": "[dbo].[sp_get_extract]",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "DS_Control_Db_Csv_Sink",
-						"type": "DatasetReference",
-						"parameters": {
-							"Db_Name": {
-								"value": "@pipeline().parameters.Db_Name",
-								"type": "Expression"
-							}
-						}
-					},
-					"firstRowOnly": false
+					"storedProcedureName": "[ctl].[sp_get_extract]"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_Azure_Sql_Db",
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"db_name": "control_db"
+					}
 				}
+			},
+			{
+				"name": "ForEach",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "SP_Get_Template_Details",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": []
 			}
 		],
 		"parameters": {
