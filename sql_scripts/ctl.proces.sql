@@ -4,7 +4,7 @@ GO
 GO
 CREATE TABLE ctl.process 
 (
-    process_id INT, 
+    process_id INT NOT NULL, 
     process_name VARCHAR(50),
     PRIMARY KEY (process_id)
 );
